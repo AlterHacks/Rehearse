@@ -6,7 +6,11 @@
 		{
 			"name": "Pressure-Test",
 			"path": "../Pressure-Test"
-		}
+		},
+        {
+            "name": "Midi-Test",
+            "path": "../Midi-Test"
+        }
 	],
 	"settings": 
 	{
