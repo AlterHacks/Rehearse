@@ -1,0 +1,30 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "Pressure-Test",
+			"path": "../Pressure-Test"
+		},
+        {
+            "name": "Midi-Test",
+            "path": "../Midi-Test"
+        },
+        {
+            "name": "Final",
+            "path": "../Final"
+        }
+	],
+	"settings": 
+	{
+		"files.autoSave": "onFocusChange",
+		"workbench.editor.enablePreview": false,
+		"editor.formatOnType": true,
+		"editor.codeActionsOnSave": {},
+		"terminal.integrated.rendererType": "dom",
+		"editor.detectIndentation": false,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+	}
+}
