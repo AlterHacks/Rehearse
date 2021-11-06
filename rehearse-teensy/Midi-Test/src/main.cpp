@@ -1,9 +1,20 @@
 #include <Arduino.h>
 
-void setup() {
-  // put your setup code here, to run once:
-}
+const int channel = 1;
+
+void setup() {}
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  while (true) {
+    usbMIDI.sendNoteOn(2, 200, channel);
+    delay(2000);
+    usbMIDI.sendNoteOff(2, 0, channel);
+    delay(2000);
+    usbMIDI.sendNoteOn(3, 100, channel);
+    delay(2000);
+    usbMIDI.sendNoteOff(3, 0, channel);
+    delay(2000);
+
+    while (usbMIDI.read());
+  }
 }
