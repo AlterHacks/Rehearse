@@ -108,29 +108,14 @@ void setup(void)
     /* Optional: Display current status */
     myImu.displaySensorStatus();
 
-    const size_t frames = 1;
-    adafruit_bno055_offsets_t calibs[frames];
-    for (size_t frame = 0; frame < frames; frame++)
-    {
-        myImu.resetSensor();
+    /* Crystal must be configured AFTER loading calibration data into BNO055. */
+    myImu.setExtCrystalUse(true);
 
-        /* Crystal must be configured AFTER loading calibration data into BNO055. */
-        myImu.setExtCrystalUse(true);
-
-        calibs[frame] = myImu.generateOffsets();
-        Serial.println("--------------------------------");
-    }
+    adafruit_bno055_offsets_t calib = myImu.generateOffsets();
+    Serial.println("--------------------------------");
 
     Serial.println("Calibration Results: ");
-    adafruit_bno055_offsets_t average = avgSensorOffsets(calibs, frames);
-    IMU_Wrapper::displayOffsets(average);
-
-    Serial.println("--------------------------------");
-    Serial.println("Individual Results: ");
-    for (size_t frame = 0; frame < frames; frame++)
-    {
-        IMU_Wrapper::displayOffsets(calibs[frame]);
-    }
+    IMU_Wrapper::displayOffsets(calib);
 }
 
 void loop(){};
