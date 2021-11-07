@@ -2,6 +2,7 @@
 import { onMounted, reactive, ref } from 'vue';
 import Game from './components/Game.vue';
 import { MidiJSON } from '@tonejs/midi';
+import { useMIDI, onMIDIKeyUp, onMIDIKeyDown } from './logic/midi';
 
 interface ISong {
   title: string;
@@ -17,14 +18,14 @@ const availableSongs: ISong[] = [
     author: 'Henry Mancini',
     difficulty: 0.2,
     background: '/img/pink_panther.png',
-    midi: () => import('./assets/midi/golden_wind.json') as Promise<MidiJSON>,
+    midi: () => import('./assets/midi/the_pink_panther.json') as Promise<MidiJSON>,
   },
   {
     title: 'Fly Me To The Moon',
     author: 'Bart Howard',
     difficulty: 0.6,
     background: '/img/fly_me_to_the_moon.jpg',
-    midi: () => import('./assets/midi/golden_wind.json') as Promise<MidiJSON>,
+    midi: () => import('./assets/midi/fly_me_to_the_moon.json') as Promise<MidiJSON>,
   },
   {
     title: 'Golden Wind',
@@ -36,37 +37,18 @@ const availableSongs: ISong[] = [
 
 ]
 
+useMIDI()
+
 const keysDown = reactive<Set<number>>(new Set())
 const selectedSong = ref<MidiJSON | undefined>(undefined)
 
-function onMIDIInit(midi: WebMidi.MIDIAccess) {
-  const inputs = midi.inputs.values()
-  for (let input = inputs.next(); input && !input.done; input = inputs.next()) {
-    input.value.addEventListener("midimessage", onMIDIKey)
-  }
-}
-
-function onMIDIKey(event: WebMidi.MIDIMessageEvent) {
-  // Mask off the lower nibble (MIDI channel, which we don't care about)
-  switch (event.data[0] & 0xF0) {
-    case 0x90:
-      if (event.data[2] != 0) { // if velocity != 0, this is a note-on message
-        keysDown.add(event.data[1] - 36 % 12)
-      }
-      break
-    // if velocity == 0, fall thru: it's a note-off.  MIDI's weird, y'all.
-    case 0x80:
-      keysDown.delete(event.data[1] - 36 % 12)
-  }
-}
+onMIDIKeyUp((i) => keysDown.delete(i))
+onMIDIKeyDown((i) => keysDown.add(i))
 
 async function onSongSelect(song: ISong) {
-  selectedSong.value = (await song.midi()).default
+  selectedSong.value = (await song.midi() as any).default as MidiJSON
 }
 
-onMounted(async () => {
-  onMIDIInit(await navigator.requestMIDIAccess());
-})
 </script>
 
 <template>
