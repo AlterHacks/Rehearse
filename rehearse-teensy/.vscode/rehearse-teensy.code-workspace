@@ -16,14 +16,6 @@
             "path": "../Final"
         },
         {
-            "name": "IMU-Test",
-            "path": "../IMU-Test"
-        },
-        {
-            "name": "IMU-offset-calibration",
-            "path": "../IMU-offset-calibration"
-        },
-        {
             "name": "LED-Test",
             "path": "../LED-Test"
         }
