@@ -17,28 +17,50 @@ const int FINGERS = 10;
 const uint8_t fingers[FINGERS] = {lThumb, lIndex, lMiddle, lRing, lPinky,
                                   rThumb, rIndex, rMiddle, rRing, rPinky};
 
-void updateFinger(uint8_t analogPin, uint8_t note)
+const uint8_t lThumbLed = 5;
+const uint8_t lIndexLed = 5;
+const uint8_t lMiddleLed = 5;
+const uint8_t lRingLed = 5;
+const uint8_t lPinkyLed = 5;
+const uint8_t rThumbLed = 1;
+const uint8_t rIndexLed = 4;
+const uint8_t rMiddleLed = 2;
+const uint8_t rRingLed = 3;
+const uint8_t rPinkyLed = 0;
+
+const uint8_t ledPins[FINGERS] = {lThumbLed, lIndexLed, lMiddleLed, lRingLed, lPinkyLed,
+                                  rThumbLed, rIndexLed, rMiddleLed, rRingLed, rPinkyLed};
+
+void updateFinger(uint8_t fingerId, uint8_t note)
 {
-    int read = analogRead(analogPin);
+    int read = analogRead(fingers[fingerId]);
     if (read > 900)
     {
         usbMIDI.sendNoteOn(note, read, channel);
+        digitalWrite(ledPins[fingerId], HIGH);
     }
     else
     {
         usbMIDI.sendNoteOff(note, 0, channel);
+        digitalWrite(ledPins[fingerId], LOW);
     }
 }
 
 void setup()
 {
     Serial.begin(9600);
+
+    for (int i = 0; i < FINGERS; i++)
+    {
+        pinMode(ledPins[i], OUTPUT);
+    }
 }
 
 void loop()
 {
-    for (int i = 0; i < FINGERS; i++) {
-        updateFinger(fingers[i], i);
+    for (int i = 0; i < FINGERS; i++)
+    {
+        updateFinger(i, i);
     }
 
     while (usbMIDI.read());
