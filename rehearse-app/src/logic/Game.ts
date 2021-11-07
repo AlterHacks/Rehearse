@@ -209,7 +209,10 @@ export class Game {
 			const newHits = targetNotes.filter((note) => !note.hit);
 			this.combo.value += newHits.length;
 			this.score.value += newHits.length * 10 * this.combo.value;
-			newHits.forEach((note) => (note.hit = true));
+			newHits.forEach((note) => {
+				(note.mesh.material as MeshBasicMaterial).color.set(0x00ff00);
+				note.hit = true;
+			});
 			(this.judgementLineObject.material as MeshBasicMaterial).color.set(0x00ff00);
 		} else {
 			(this.judgementLineObject.material as MeshBasicMaterial).color.set(0xe0d8c3);

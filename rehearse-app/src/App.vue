@@ -35,6 +35,13 @@ const availableSongs: ISong[] = [
     midi: () => import('./assets/midi/golden_wind.json') as Promise<MidiJSON>,
   },
   {
+    title: 'Dimension',
+    author: 'Creo',
+    difficulty: 1,
+    background: '/img/creo_dimension.jpg',
+    midi: () => import('./assets/midi/creo_dimension.json') as Promise<MidiJSON>,
+  },
+  {
     title: 'Trolley',
     author: 'Danil Korennykh',
     difficulty: 727,

@@ -4,10 +4,10 @@ export class SquareSpiral {
 	rings: Mesh[] = [];
 
 	constructor(public x: number, public y: number, public z: number, public size: number, numSquares: number) {
-		const mat = new MeshBasicMaterial({ color: 0x3d404d });
+		const mat = new MeshBasicMaterial({ color: 0xabb4de });
 		for (let i = 0; i < numSquares; i++) {
 			const currentRingSize = size / (i * 4);
-			const square = new RingGeometry(currentRingSize - 1, currentRingSize, 4);
+			const square = new RingGeometry(currentRingSize - 1.5, currentRingSize, 4);
 			square.rotateZ(i / 40);
 			const mesh = new Mesh(square, mat);
 			mesh.position.x = x;
