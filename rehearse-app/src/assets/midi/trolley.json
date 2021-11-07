@@ -1,0 +1,191 @@
+{
+  "header": {
+    "keySignatures": [],
+    "meta": [],
+    "name": "",
+    "ppq": 480,
+    "tempos": [
+      {
+        "bpm": 120,
+        "ticks": 0
+      }
+    ],
+    "timeSignatures": [
+      {
+        "ticks": 0,
+        "timeSignature": [
+          4,
+          4
+        ],
+        "measures": 0
+      }
+    ]
+  },
+  "tracks": [
+    {
+      "channel": 0,
+      "controlChanges": {
+        "1": [
+          {
+            "number": 1,
+            "ticks": 0,
+            "time": 0,
+            "value": 0
+          }
+        ],
+        "6": [
+          {
+            "number": 6,
+            "ticks": 0,
+            "time": 0,
+            "value": 0.5039370078740157
+          },
+          {
+            "number": 6,
+            "ticks": 0,
+            "time": 0,
+            "value": 0.5039370078740157
+          },
+          {
+            "number": 6,
+            "ticks": 0,
+            "time": 0,
+            "value": 0.09448818897637795
+          }
+        ],
+        "7": [
+          {
+            "number": 7,
+            "ticks": 0,
+            "time": 0,
+            "value": 0.7874015748031497
+          }
+        ],
+        "10": [
+          {
+            "number": 10,
+            "ticks": 0,
+            "time": 0,
+            "value": 0.5039370078740157
+          }
+        ],
+        "11": [
+          {
+            "number": 11,
+            "ticks": 0,
+            "time": 0,
+            "value": 1
+          }
+        ],
+        "38": [
+          {
+            "number": 38,
+            "ticks": 0,
+            "time": 0,
+            "value": 0
+          }
+        ],
+        "100": [
+          {
+            "number": 100,
+            "ticks": 0,
+            "time": 0,
+            "value": 0.015748031496062992
+          },
+          {
+            "number": 100,
+            "ticks": 0,
+            "time": 0,
+            "value": 0.007874015748031496
+          },
+          {
+            "number": 100,
+            "ticks": 0,
+            "time": 0,
+            "value": 0
+          }
+        ],
+        "101": [
+          {
+            "number": 101,
+            "ticks": 0,
+            "time": 0,
+            "value": 0
+          },
+          {
+            "number": 101,
+            "ticks": 0,
+            "time": 0,
+            "value": 0
+          },
+          {
+            "number": 101,
+            "ticks": 0,
+            "time": 0,
+            "value": 0
+          }
+        ],
+        "121": [
+          {
+            "number": 121,
+            "ticks": 0,
+            "time": 0,
+            "value": 0
+          }
+        ]
+      },
+      "pitchBends": [
+        {
+          "ticks": 0,
+          "time": 0,
+          "value": 0
+        }
+      ],
+      "instrument": {
+        "family": "piano",
+        "name": "acoustic grand piano",
+        "number": 0
+      },
+      "name": "",
+      "notes": [
+        {
+          "duration": 2,
+          "durationTicks": 1920,
+          "midi": 53,
+          "name": "F3",
+          "ticks": 0,
+          "time": 0,
+          "velocity": 1
+        },
+        {
+          "duration": 2,
+          "durationTicks": 1920,
+          "midi": 58,
+          "name": "A#3",
+          "ticks": 0,
+          "time": 0,
+          "velocity": 1
+        },
+        {
+          "duration": 2,
+          "durationTicks": 1920,
+          "midi": 65,
+          "name": "F4",
+          "ticks": 0,
+          "time": 0,
+          "velocity": 1
+        },
+        {
+          "duration": 2,
+          "durationTicks": 1920,
+          "midi": 48,
+          "name": "C3",
+          "ticks": 0,
+          "time": 0,
+          "velocity": 1
+        }
+      ],
+      "endOfTrackTicks": 1920
+    }
+  ]
+}

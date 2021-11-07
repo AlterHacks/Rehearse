@@ -1,5 +1,6 @@
 html, body, #app {
   @apply bg-surface-900 w-full h-full;
+  font-family: 'Roboto'
 }
 
 kbd {
