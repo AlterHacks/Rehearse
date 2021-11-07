@@ -18,6 +18,10 @@
         {
             "name": "IMU-Test",
             "path": "../IMU-Test"
+        },
+        {
+            "name": "IMU-offset-calibration",
+            "path": "../IMU-offset-calibration"
         }
 	],
 	"settings": 
