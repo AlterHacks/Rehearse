@@ -1,9 +1,17 @@
 #include <Arduino.h>
 
-void setup() {
-  // put your setup code here, to run once:
+const int LED_NUM = 5;
+
+void setup()
+{
+    for (int i = 0; i < LED_NUM; i++) {
+        pinMode(i, OUTPUT);
+    }
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop()
+{
+    for (int i = 0; i < LED_NUM; i++) {
+        digitalWrite(i, HIGH);
+    }
 }
