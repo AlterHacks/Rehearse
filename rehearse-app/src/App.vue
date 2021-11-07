@@ -34,7 +34,13 @@ const availableSongs: ISong[] = [
     background: '/img/Golden_Wind.png',
     midi: () => import('./assets/midi/golden_wind.json') as Promise<MidiJSON>,
   },
-
+  {
+    title: 'Trolley',
+    author: 'Danil Korennykh',
+    difficulty: 727,
+    background: '/img/trollcrazy.png',
+    midi: () => import('./assets/midi/trolley.json') as Promise<MidiJSON>,
+  },
 ]
 
 useMIDI()

@@ -1,7 +1,6 @@
-import { NoteInterface, NoteJSON } from '@tonejs/midi/dist/Note';
+import { NoteInterface } from '@tonejs/midi/dist/Note';
 import {
 	AmbientLight,
-	AxesHelper,
 	Camera,
 	DirectionalLight,
 	DoubleSide,
@@ -10,10 +9,8 @@ import {
 	Material,
 	Mesh,
 	MeshBasicMaterial,
-	MeshStandardMaterial,
 	PerspectiveCamera,
 	PlaneGeometry,
-	PointLight,
 	Scene,
 	Vector3,
 	WebGLRenderer
@@ -23,8 +20,7 @@ import { createGradientMesh } from './Gradient';
 import { Note } from './Note';
 import { MidiJSON } from '@tonejs/midi';
 import { SquareSpiral } from './decor/SquareSpiral';
-import { Beam } from './decor/Beam';
-import { Ref, ref } from 'vue';
+import { Ref } from 'vue';
 
 // Calculates the x position of the lane based on the lane number and width
 function calculateLaneX(lane: number, width: number, numLanes: number): number {
@@ -121,7 +117,7 @@ export class Game {
 			track.notes.forEach((noteData) => {
 				const note = new Note(
 					noteData as NoteInterface,
-					(noteData.midi % 12) * this.laneWidth,
+					(noteData.midi - (noteData.midi - noteData.midi % 12)) * this.laneWidth,
 					-noteData.time * data.header.tempos[0].bpm * this.scrollSpeed,
 					this.laneWidth,
 					this.laneCount,

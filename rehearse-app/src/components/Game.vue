@@ -20,7 +20,7 @@ onMounted(() => {
   game.loadMidi(props.midi)
   game.start()
 })
-
+useEventListener('keydown', (ev) => ev.key === ' ' && game?.toggle())
 onMIDIKeyDown((i) => game?.keyDown(i))
 onMIDIKeyUp((i) => game?.keyUp(i))
 </script>
