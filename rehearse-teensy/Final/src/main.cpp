@@ -14,21 +14,21 @@ const uint8_t rRing = A9;
 const uint8_t rPinky = A6;
 
 const int FINGERS = 10;
-const uint8_t fingers[FINGERS] = {lThumb, lIndex, lMiddle, lRing, lPinky,
+const uint8_t fingers[FINGERS] = {lPinky, lRing, lMiddle, lIndex, lThumb,
                                   rThumb, rIndex, rMiddle, rRing, rPinky};
 
 const uint8_t lThumbLed = 5;
-const uint8_t lIndexLed = 5;
-const uint8_t lMiddleLed = 5;
-const uint8_t lRingLed = 5;
-const uint8_t lPinkyLed = 5;
+const uint8_t lIndexLed = 9;
+const uint8_t lMiddleLed = 6;
+const uint8_t lRingLed = 8;
+const uint8_t lPinkyLed = 7;
 const uint8_t rThumbLed = 1;
 const uint8_t rIndexLed = 4;
 const uint8_t rMiddleLed = 2;
 const uint8_t rRingLed = 3;
 const uint8_t rPinkyLed = 0;
 
-const uint8_t ledPins[FINGERS] = {lThumbLed, lIndexLed, lMiddleLed, lRingLed, lPinkyLed,
+const uint8_t ledPins[FINGERS] = {lPinkyLed, lRingLed, lMiddleLed, lIndexLed, lThumbLed,
                                   rThumbLed, rIndexLed, rMiddleLed, rRingLed, rPinkyLed};
 
 void updateFinger(uint8_t fingerId, uint8_t note)
